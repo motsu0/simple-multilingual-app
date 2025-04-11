@@ -5,7 +5,7 @@ import Container from '@/components/Container';
 import Link from 'next/link';
 
 export default function Page() {
-  const params: { lang: LangType } = useParams();
+  const params = useParams<{ lang: LangType }>();
   const { lang } = params;
   const t = i18nText[lang];
 
