@@ -1,16 +1,12 @@
 'use client';
-import { use } from 'react';
+import { useParams } from 'next/navigation';
 import { i18nText, LangType } from '@/components/Language';
 import Container from '@/components/Container';
 import Link from 'next/link';
 
-type Params = {
-  lang: LangType;
-};
-
-export default function Page({ params }: { params: Promise<Params> }) {
-  //
-  const { lang } = use(params);
+export default function Page() {
+  const params: { lang: LangType } = useParams();
+  const { lang } = params;
   const t = i18nText[lang];
 
   return (
