@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { i18nText, LangType } from '@/components/Language';
 import Container from '@/components/Container';
@@ -8,6 +9,10 @@ export default function Page() {
   const params = useParams<{ lang: LangType }>();
   const { lang } = params;
   const t = i18nText[lang];
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   return (
     <Container lang={lang}>
